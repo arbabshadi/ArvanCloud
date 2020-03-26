@@ -1,7 +1,7 @@
 {
-  "name": "devconnector",
+  "name": "Arvan",
   "version": "1.0.0",
-  "description": "Social Network For Developers",
+  "description": "Arvan Cloud Calculation",
   "main": "server.js",
   "scripts": {
     "start": "node server",
