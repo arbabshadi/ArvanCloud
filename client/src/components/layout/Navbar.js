@@ -26,9 +26,9 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   );
 
   return (
-    <nav className="navbar bg-dark">
+    <nav className="navbar">
       <h1>
-        <Link to="/"><i className="fas fa-code"></i> DevConnector</Link>
+        <Link to="/"><img src={require('../../img/Logo.svg')} /><span>ابر</span> آروان</Link>
       </h1>
       {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
     </nav>
