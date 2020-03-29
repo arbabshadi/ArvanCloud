@@ -34,8 +34,8 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
       </ul>
       <ul className="navbar-actions">
         <li><span className="icon-Home"></span></li>
-        <li><span className="icon-Feature"></span></li>
-        <li>فا<img src={LanguageFa} alt="" /></li>
+        <li><span className="icon-Update"></span></li>
+        <li>فا<img src={LanguageFa} className="language-fa" alt="" /></li>
       </ul>
       {!loading && (<Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>)}
     </nav>
