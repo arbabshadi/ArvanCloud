@@ -24,6 +24,7 @@ import { loadUser } from './action/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+import './css/style.css';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
