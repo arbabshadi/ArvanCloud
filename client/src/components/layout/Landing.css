@@ -1,0 +1,32 @@
+section.landing{
+  padding: 120px 160px;
+}
+
+.landing h2{
+  font-size: 40px;
+  color: var(--primary-text-color);
+  font-weight: unset;
+}
+
+.landing h2 img{
+  vertical-align: middle;
+  padding-left: 12px;
+}
+
+div.sub-landing{
+  padding-right: 30px;
+}
+
+ul.receipt-actions{
+  display: flex;
+}
+
+ul.receipt-actions li{
+  padding: 2.2rem 1rem;
+  margin: 0 .25rem;
+  font-size: 22px;
+}
+
+ul.receipt-actions li a{
+  color: var(--primary-text-color);
+}

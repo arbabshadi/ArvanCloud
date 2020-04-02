@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../action/auth';
+import './Navbar.css';
 import Logo from '../../img/Logo.svg';
 import LanguageFa from '../../img/Language-fa.png';
 
@@ -25,7 +26,7 @@ const Navbar = ({ auth: { isAuthenticated, loading, user }, logout }) => {
   return (
     <nav className="navbar">
       <h1>
-        <Link to="/" className="navbar-logo"><img src={Logo} /><h1><span>ابر</span>آروان </h1></Link>
+        <Link to="/newReceipt" className="navbar-logo"><img src={Logo} /><h1><span>ابر</span>آروان </h1></Link>
       </h1>
       <ul className="navbar-links">
         <li><Link to="/profiles"><span className="icon-Home"></span>محصولات</Link></li>

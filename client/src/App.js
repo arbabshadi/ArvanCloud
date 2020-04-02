@@ -1,7 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/layout/Landing';
+import NewReceipt from './components/receipt/NewReceipt';
+import ListReceipt from './components/receipt/ListReceipt';
 import Login from './components/auth/Login';
 import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
@@ -41,10 +44,12 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <Route exact path='/' component={Landing} />
+          <Redirect to="/newReceipt" />
           <section className="container">
             <Alert />
             <Switch>
+              <Route exact path='/newReceipt' component={NewReceipt} />
+              <Route exact path='/listReceipt' component={ListReceipt} />
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/profiles' component={Profiles} />

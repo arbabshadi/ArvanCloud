@@ -2,6 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import './Landing.css';
+import CalculatorIcon from '../../img/Calculator-icon.png';
 
 
 const Landing = ({ isAuthenticated }) => {
@@ -12,18 +14,12 @@ const Landing = ({ isAuthenticated }) => {
 
   return (
     <section className="landing">
-      <div className="dark-overlay">
-        <div className="landing-inner">
-          <h1 className="x-large">Developer Connector</h1>
-          <p className="lead">
-            Create a developer profile/portfolio, share posts and get help from
-            other developers
-          </p>
-          <div className="buttons">
-            <Link to="/register" className="btn btn-primary">Sign Up</Link>
-            <Link to="/login" className="btn btn-light">Login</Link>
-          </div>
-        </div>
+      <h2><img src={CalculatorIcon} alt="" />ماشین‌حساب</h2>
+      <div className="sub-landing">
+        <ul className="receipt-actions">
+          <li><Link to="/newReceipt">ایجاد صورتحساب جدید</Link></li>
+          <li><Link to="/listReceipt">لیست صورتحساب‌ها</Link></li>
+        </ul>
       </div>
     </section>
   )
