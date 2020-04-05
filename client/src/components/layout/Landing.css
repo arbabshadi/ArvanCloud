@@ -1,5 +1,5 @@
 section.landing{
-  padding: 120px 160px;
+  padding: 120px 0;
 }
 
 .landing h2{
@@ -22,11 +22,24 @@ ul.receipt-actions{
 }
 
 ul.receipt-actions li{
-  padding: 2.2rem 1rem;
+  padding: 2.2rem 1rem 2.2rem 6rem;
   margin: 0 .25rem;
   font-size: 22px;
+  display: flex;
 }
 
 ul.receipt-actions li a{
+  color: #bcc2d1;
+}
+
+ul.receipt-actions .active{
   color: var(--primary-text-color);
+}
+
+ul.receipt-actions li a .radio-btn{
+  vertical-align: middle;
+}
+
+ul.receipt-actions li a span.active{
+  color: red;
 }
