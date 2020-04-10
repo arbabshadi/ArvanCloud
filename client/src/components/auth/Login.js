@@ -3,11 +3,16 @@ import { connect } from 'react-redux';
 import { login } from '../../action/auth';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Container, Button, Alert } from 'react-bootstrap';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { CSSTransition } from 'react-transition-group';
 
-
-
+import './Login.css';
 
 const Login = ({ login, isAuthenticated }) => {
+
+  const [showButton, setShowButton] = useState(true);
+  const [showMessage, setShowMessage] = useState(false);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -72,7 +77,44 @@ const Login = ({ login, isAuthenticated }) => {
       <p className="my-1">
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
-    </Fragment >
+
+      <Container style={{ paddingTop: '2rem' }}>
+        <h1>Hi my friends</h1>
+        {showButton && (
+          <Button
+            onClick={() => setShowMessage(true)}
+            size="lg"
+          >
+            Show Message
+          </Button>
+        )}
+        <CSSTransition
+          in={showMessage}
+          timeout={300}
+          classNames="login"
+          unmountOnExit
+          onEnter={() => setShowButton(false)}
+          onExited={() => setShowButton(true)}
+        >
+          <Alert
+            variant="primary"
+            dismissible
+            onClose={() => setShowMessage(false)}
+          >
+            <Alert.Heading>
+              Animated alert message
+        </Alert.Heading>
+            <p>
+              This alert message is being transitioned in and
+              out of the DOM.
+        </p>
+            <Button onClick={() => setShowMessage(false)}>
+              Close
+        </Button>
+          </Alert>
+        </CSSTransition>
+      </Container>
+    </Fragment>
   )
 };
 
