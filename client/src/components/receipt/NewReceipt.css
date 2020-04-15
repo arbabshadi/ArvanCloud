@@ -1,6 +1,24 @@
-.alert-enter {
+.transition-enter {
+  opacity: 0;
+  transform: translateY(100px) scale(0.9);
+}
+.transition-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.transition-exit {
+  opacity: 1;
+}
+.transition-exit-active {
   opacity: 0;
   transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.alert-enter {
+  opacity: 0;
+  transform: translateY(100px) scale(0.9);
 }
 .alert-enter-active {
   opacity: 1;
@@ -36,4 +54,14 @@ section .new-receipt .products ul{
 
 section .new-receipt .products ul li{
   padding-left: 60px;
+}
+
+.continue-btn{
+  padding: 10px 30px;
+  background-color: green;
+  color: white;
+}
+
+.alert-section{
+  background-color: yellow;
 }

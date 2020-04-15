@@ -3,16 +3,16 @@ import { connect } from 'react-redux';
 import { login } from '../../action/auth';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Container, Button, Alert } from 'react-bootstrap';
-import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import { Container, Button, Alert } from 'react-bootstrap';
+// import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { CSSTransition } from 'react-transition-group';
 
 import './Login.css';
 
 const Login = ({ login, isAuthenticated }) => {
 
-  const [showButton, setShowButton] = useState(true);
-  const [showMessage, setShowMessage] = useState(false);
+  // const [showButton, setShowButton] = useState(true);
+  // const [showMessage, setShowMessage] = useState(false);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -78,7 +78,7 @@ const Login = ({ login, isAuthenticated }) => {
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
 
-      <Container style={{ paddingTop: '2rem' }}>
+      {/* <Container style={{ paddingTop: '2rem' }}>
         <h1>Hi my friends</h1>
         {showButton && (
           <Button
@@ -113,7 +113,7 @@ const Login = ({ login, isAuthenticated }) => {
         </Button>
           </Alert>
         </CSSTransition>
-      </Container>
+      </Container> */}
     </Fragment>
   )
 };
