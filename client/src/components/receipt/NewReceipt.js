@@ -18,6 +18,15 @@ const NewReceipt = props => {
   const [showMessage, setShowMessage] = useState(false);
   const [showTitle, setShowTitle] = useState(true);
 
+  const ulItem = useRef(null);
+
+  useEffect(() => {
+    effect
+    return () => {
+      cleanup
+    }
+  }, [])
+
   return (
     <Fragment>
       <Landing NewReceipt={true} />
@@ -67,7 +76,11 @@ const NewReceipt = props => {
             <button onClick={() => setShowMessage(false)}>Close</button>
           </div>
         </CSSTransition>
-
+        <ul>
+          <li ref={el => { ulItem = el }}>mehran</li>
+          <li>mahdi</li>
+          <li>hadise</li>
+        </ul>
       </div>
     </Fragment >
   )
