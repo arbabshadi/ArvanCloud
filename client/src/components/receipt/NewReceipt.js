@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useRef } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Landing from '../layout/Landing';
@@ -6,39 +6,13 @@ import image from '../../img/Logo.png';
 // import { Container, Button, Alert } from 'react-bootstrap';
 // import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { TweenMax, Power3 } from 'gsap';
 
-import './NewReceipt.css';
+import './NewReceipt.scss';
 
 
 
 const NewReceipt = props => {
-
-  // const products = [
-  //   {
-  //     id: 1,
-  //     title: 'DNS ابری',
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'شبکه توزیع محتوا',
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'امنیت‌ابری',
-  //   },
-  //   {
-  //     id: 4,
-  //     title: 'رایانش‌ابری',
-  //   },
-  //   {
-  //     id: 5,
-  //     title: 'فضای‌ابری',
-  //   },
-  //   {
-  //     id: 6,
-  //     title: 'ویدیو',
-  //   }
-  // ]
 
   const [showButton, setShowButton] = useState(true);
   const [showMessage, setShowMessage] = useState(false);
@@ -72,11 +46,6 @@ const NewReceipt = props => {
         ))}
       </TransitionGroup> */}
 
-
-      <CSSTransition in={showTitle} timeout={300} classNames="transition" apper={true}>
-        <button className="continue-btn">hi</button>
-      </CSSTransition>
-
       <div style={{ paddingTop: '2rem' }}>
         {showButton && (
           <button onClick={() => setShowMessage(true)} className="continue-btn">Show Message</button>
@@ -98,6 +67,7 @@ const NewReceipt = props => {
             <button onClick={() => setShowMessage(false)}>Close</button>
           </div>
         </CSSTransition>
+
       </div>
     </Fragment >
   )
