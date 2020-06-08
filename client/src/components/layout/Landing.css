@@ -25,6 +25,7 @@ ul.receipt-actions li{
   padding: 2.2rem 0 2.2rem 6rem;
   font-size: 22px;
   display: flex;
+  opacity: 0;
 }
 
 ul.receipt-actions li a{

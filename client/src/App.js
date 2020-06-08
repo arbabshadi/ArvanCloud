@@ -33,10 +33,13 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-const App = () => {
+const App = ({ isAuthenticated }) => {
 
   useEffect(() => {
     store.dispatch(loadUser(), []);
+    if (!isAuthenticated) {
+      return <Redirect to="/newReceipt" />
+    }
   });
 
   return (

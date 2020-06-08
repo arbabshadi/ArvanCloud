@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react';
+import React, { Fragment, useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Landing from '../layout/Landing';
@@ -18,13 +18,30 @@ const NewReceipt = props => {
   const [showMessage, setShowMessage] = useState(false);
   const [showTitle, setShowTitle] = useState(true);
 
-  const ulItem = useRef(null);
+  let ulItem = useRef(null);
+  let btn = useRef(null);
 
   useEffect(() => {
-    effect
-    return () => {
-      cleanup
-    }
+    TweenMax.to(
+      ulItem,
+      2,
+      {
+        opacity: 1,
+        x: -50,
+        ease: Power3.easeOut
+      }
+    );
+
+    TweenMax.to(
+      btn,
+      2,
+      {
+        opacity: 1,
+        x: -50,
+        ease: Power3.easeOut
+      }
+    );
+
   }, [])
 
   return (
@@ -55,7 +72,7 @@ const NewReceipt = props => {
         ))}
       </TransitionGroup> */}
 
-      <div style={{ paddingTop: '2rem' }}>
+      <div ref={el => { btn = el }} style={{ paddingTop: '2rem' }}>
         {showButton && (
           <button onClick={() => setShowMessage(true)} className="continue-btn">Show Message</button>
         )}
@@ -77,7 +94,7 @@ const NewReceipt = props => {
           </div>
         </CSSTransition>
         <ul>
-          <li ref={el => { ulItem = el }}>mehran</li>
+          <li className="gsap-test" ref={el => { ulItem = el }}>mehran</li>
           <li>mahdi</li>
           <li>hadise</li>
         </ul>
