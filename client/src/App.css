@@ -55,6 +55,7 @@ body {
   background-color: var(--bg1-color);
   color: #333;
   direction: rtl;
+  overflow-x: hidden;
 }
 
 a {

@@ -1,8 +1,12 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { login } from '../../action/auth';
 import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { html } from '../html.js';
+import jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 // import { Container, Button, Alert } from 'react-bootstrap';
 // import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { CSSTransition } from 'react-transition-group';
@@ -11,8 +15,11 @@ import './Login.css';
 
 const Login = ({ login, isAuthenticated }) => {
 
-  // const [showButton, setShowButton] = useState(true);
-  // const [showMessage, setShowMessage] = useState(false);
+  console.log(html);
+
+  useEffect(() => {
+    document.getElementById("test").innerHTML = html;
+  }, []);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -51,6 +58,34 @@ const Login = ({ login, isAuthenticated }) => {
     return <Redirect to="/dashboard" />;
   }
 
+  function demoUsingTTFFont() {
+
+    const doc = new jspdf({ filters: ["ASCIIHexEncode"] });
+
+
+    doc.addFileToVFS("../../fonts/Amiri-Regular.ttf");
+    doc.addFont("Amiri-Regular.ttf", "Amiri", "normal");
+
+    doc.setFont("Amiri"); // set font
+    doc.text('یبسنابسینبا', 15, 15);
+    doc.fromHTML(html, 15, 15, {
+      'width': 170,
+      // 'elementHandlers': specialElementHandlers
+    })
+
+    doc.save('sampleDoc.pdf');
+
+    // html2canvas(html, {
+    //   onrendered: function (canvas) {
+    //     var doc = new jspdf();
+    //     doc.save('test.pdf')
+    //   }
+    // })
+
+  }
+
+
+
   return (
     <Fragment>
       <h1 className="large text-primary">Sign In</h1>
@@ -78,42 +113,9 @@ const Login = ({ login, isAuthenticated }) => {
         Don't have an account? <Link to="/register">Sign Up</Link>
       </p>
 
-      {/* <Container style={{ paddingTop: '2rem' }}>
-        <h1>Hi my friends</h1>
-        {showButton && (
-          <Button
-            onClick={() => setShowMessage(true)}
-            size="lg"
-          >
-            Show Message
-          </Button>
-        )}
-        <CSSTransition
-          in={showMessage}
-          timeout={300}
-          classNames="login"
-          unmountOnExit
-          onEnter={() => setShowButton(false)}
-          onExited={() => setShowButton(true)}
-        >
-          <Alert
-            variant="primary"
-            dismissible
-            onClose={() => setShowMessage(false)}
-          >
-            <Alert.Heading>
-              Animated alert message
-        </Alert.Heading>
-            <p>
-              This alert message is being transitioned in and
-              out of the DOM.
-        </p>
-            <Button onClick={() => setShowMessage(false)}>
-              Close
-        </Button>
-          </Alert>
-        </CSSTransition>
-      </Container> */}
+      <button onClick={e => demoUsingTTFFont(e)}>click me</button>
+      <div id="test"></div>
+
     </Fragment>
   )
 };

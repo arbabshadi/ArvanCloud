@@ -47,7 +47,7 @@ const App = ({ isAuthenticated }) => {
       <Router>
         <Fragment>
           <Navbar />
-          <Redirect to="/newReceipt" />
+          <Redirect exact from="/" to="/newReceipt" />
           <section className="container">
             <Alert />
             <Switch>

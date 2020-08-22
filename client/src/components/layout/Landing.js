@@ -14,7 +14,7 @@ const Landing = ({ NewReceipt, ListReceipt, isAuthenticated }) => {
 
 
   let newReceiptBtn = useRef(null);
-  // let listReceiptBtn = useRef(null);
+  let listReceiptBtn = useRef(null);
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -27,9 +27,20 @@ const Landing = ({ NewReceipt, ListReceipt, isAuthenticated }) => {
         opacity: 1,
         x: 20,
         ease: Power3.easeInOut,
-        delay: 1
+      }
+    );
+
+    TweenMax.to(
+      listReceiptBtn,
+      1,
+      {
+        opacity: 1,
+        x: 20,
+        ease: Power3.easeInOut,
+        delay: 0.3
       }
     )
+
   }, []);
 
   return (
@@ -39,7 +50,7 @@ const Landing = ({ NewReceipt, ListReceipt, isAuthenticated }) => {
         <div className="sub-landing">
           <ul className="receipt-actions">
             <li ref={el => { newReceiptBtn = el }}><Link className={NewReceipt ? 'active' : ''} to="/newReceipt" ><span className={`radio-btn icon-Home ${NewReceipt ? 'active' : ''}`}></span>ایجاد صورتحساب جدید</Link></li>
-            <li><Link className={ListReceipt ? 'active' : ''} to="/listReceipt"><span className={`radio-btn icon-Home ${ListReceipt ? 'active' : ''}`}></span>لیست صورتحساب‌ها</Link></li>
+            <li ref={el => { listReceiptBtn = el }}><Link className={ListReceipt ? 'active' : ''} to="/listReceipt"><span className={`radio-btn icon-Home ${ListReceipt ? 'active' : ''}`}></span>لیست صورتحساب‌ها</Link></li>
           </ul>
         </div>
       </section>
